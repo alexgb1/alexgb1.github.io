@@ -3,42 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>agbuzneanu.com/</loc>
+    <loc>https://example.org/</loc>
     <lastmod>2020-09-06T12:15:14+01:00</lastmod>
   </url>
   
   <url>
-    <loc>agbuzneanu.com/blog/</loc>
+    <loc>https://example.org/blog/</loc>
     <lastmod>2020-09-06T12:15:14+01:00</lastmod>
   </url>
   
   <url>
-    <loc>agbuzneanu.com/blog/faster-polynomial-evaluation/</loc>
+    <loc>https://example.org/blog/faster-polynomial-evaluation/</loc>
     <lastmod>2020-09-06T12:15:14+01:00</lastmod>
   </url>
   
   <url>
-    <loc>agbuzneanu.com/tags/math/</loc>
+    <loc>https://example.org/tags/math/</loc>
     <lastmod>2020-09-06T12:15:14+01:00</lastmod>
   </url>
   
   <url>
-    <loc>agbuzneanu.com/tags/polynomial/</loc>
+    <loc>https://example.org/tags/polynomial/</loc>
     <lastmod>2020-09-06T12:15:14+01:00</lastmod>
   </url>
   
   <url>
-    <loc>agbuzneanu.com/tags/scala/</loc>
+    <loc>https://example.org/tags/scala/</loc>
     <lastmod>2020-09-06T12:15:14+01:00</lastmod>
   </url>
   
   <url>
-    <loc>agbuzneanu.com/tags/</loc>
+    <loc>https://example.org/tags/</loc>
     <lastmod>2020-09-06T12:15:14+01:00</lastmod>
   </url>
   
   <url>
-    <loc>agbuzneanu.com/categories/</loc>
+    <loc>https://example.org/categories/</loc>
   </url>
   
 </urlset>

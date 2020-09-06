@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>agbuzneanu.com/</loc>
+    <lastmod>2020-09-06T12:15:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>agbuzneanu.com/blog/</loc>
+    <lastmod>2020-09-06T12:15:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>agbuzneanu.com/blog/faster-polynomial-evaluation/</loc>
+    <lastmod>2020-09-06T12:15:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>agbuzneanu.com/tags/math/</loc>
+    <lastmod>2020-09-06T12:15:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>agbuzneanu.com/tags/polynomial/</loc>
+    <lastmod>2020-09-06T12:15:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>agbuzneanu.com/tags/scala/</loc>
+    <lastmod>2020-09-06T12:15:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>agbuzneanu.com/tags/</loc>
+    <lastmod>2020-09-06T12:15:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>agbuzneanu.com/categories/</loc>
+  </url>
+  
+</urlset>

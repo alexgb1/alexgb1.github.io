@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on alexgb1</title>
+    <link>agbuzneanu.com/tags/</link>
+    <description>Recent content in Tags on alexgb1</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Sun, 06 Sep 2020 12:15:14 +0100</lastBuildDate>
+    
+	<atom:link href="agbuzneanu.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>math</title>
+      <link>agbuzneanu.com/tags/math/</link>
+      <pubDate>Sun, 06 Sep 2020 12:15:14 +0100</pubDate>
+      
+      <guid>agbuzneanu.com/tags/math/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>polynomial</title>
+      <link>agbuzneanu.com/tags/polynomial/</link>
+      <pubDate>Sun, 06 Sep 2020 12:15:14 +0100</pubDate>
+      
+      <guid>agbuzneanu.com/tags/polynomial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>scala</title>
+      <link>agbuzneanu.com/tags/scala/</link>
+      <pubDate>Sun, 06 Sep 2020 12:15:14 +0100</pubDate>
+      
+      <guid>agbuzneanu.com/tags/scala/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

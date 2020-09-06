@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <title>Faster Polynomial Evaluation | alexgb1</title>
+
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description" content="">
+  <meta name="keywords" content="polynomial , math , scala">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+  
+  
+    
+ 
+  
+  
+  
+  
+  
+  
+    
+    <link type="text/css" rel="stylesheet" href="/agbuzneanu.com/css/post.min.2cb93c91050d1853bf971cc31e00122edd6e0f405aa1de3b7f8ef67ea3b5a79a.css" integrity="sha256-LLk8kQUNGFO/lxzDHgASLt1uD0Baod47f472fqO1p5o="/>
+  
+    
+    <link type="text/css" rel="stylesheet" href="/agbuzneanu.com/css/custom.min.3b855708a00d0d0680f3a7b5722ff4bc846e03ee521956c0ee00d69a0a8c852b.css" integrity="sha256-O4VXCKANDQaA86e1ci/0vIRuA&#43;5SGVbA7gDWmgqMhSs="/>
+  
+  
+   
+   
+    
+
+<script type="application/ld+json">
+  
+    {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "agbuzneanu.com"
+      },
+      "articleSection" : "blog",
+      "name" : "Faster Polynomial Evaluation",
+      "headline" : "Faster Polynomial Evaluation",
+      "description" : "",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2020",
+      "datePublished": "2020-09-06 12:15:14 \u002b0100 BST",
+      "dateModified" : "2020-09-06 12:15:14 \u002b0100 BST",
+      "url" : "agbuzneanu.com\/blog\/faster-polynomial-evaluation\/",
+      "wordCount" : "345",
+      "keywords" : ["polynomial", "math", "scala", "Blog"]
+    }
+  
+  </script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-23997013-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</head>
+
+<body class="switchme">
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
+  </div>
+</div>
+ 
+
+  <nav class="nav switchme" id="navigation">
+  <ul class="nav__list">
+    
+    
+      <li>
+        <a  href="agbuzneanu.com/"> home</a>
+      </li>
+    
+      <li>
+        <a  class="active"
+         href="agbuzneanu.com/blog">blog</a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+
+  <main>
+    
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">Faster Polynomial Evaluation</h1>
+            <time datetime="2020-09-06 12:15:14 &#43;0100 BST" class="post__date"
+            >Sep 6 2020</time>
+          </header>
+          <article class="post__content">
+              
+<p>This might not be one of your daily problems. Evaluating polynomials seems to be a simple task until the coefficients become big numbers, e.g. 1024 bits or more, and could impact your whole software component.</p>
+<h2 id="classic-evaluation">Classic evaluation<a class="anchor" href="#classic-evaluation">#</a></h2>
+<p>A simple way to evaluate a polynomial is:</p>
+<pre><code class="language-scala">def classicCompute(variable: BigInt): BigInt = {
+    coefficients
+    .zipWithIndex
+    .foldLeft(BigInt(0)) {
+       case (accumulator, (coefficient, i)) =&gt; 
+          accumulator + coefficient * variable.pow(i)
+    }
+  }
+</code></pre>
+<h2 id="optimized-evaluation">Optimized evaluation<a class="anchor" href="#optimized-evaluation">#</a></h2>
+<p>In order to optimize a polynomial evaluation, one could use <a href="https://en.wikipedia.org/wiki/Horner%27s_method">Horner&rsquo;s method</a>, which implies a significant <a href="https://en.wikipedia.org/wiki/Horner%27s_method#Efficiency">improvement</a> when using big numbers.</p>
+<p>Translated into code, the <a href="https://en.wikipedia.org/wiki/Horner%27s_method#Polynomial_evaluation_and_long_division">evaluation</a> looks like this:</p>
+<pre><code class="language-scala">def compute(variable: BigInt): BigInt = {
+    @tailrec
+    def loop(accumulator: BigInt, coef: List[BigInt]): BigInt = {
+      coefficients match {
+        case Nil =&gt; accumulator
+        case coefficient :: remaining =&gt;
+          loop(coefficient + variable * accumulator, remaining)
+      }
+    }
+
+    loop(0, coefficients.reverse)
+  }
+</code></pre>
+<h2 id="in-the-real-world">In the real world<a class="anchor" href="#in-the-real-world">#</a></h2>
+<p>Given the two implementation, I&rsquo;ve setup a benchmark test using a sbt <a href="https://github.com/ktoso/sbt-jmh">plugin</a> for the JMH (Java Microbenchmark Harness).
+The results for 4096bit size numbers and 20 coefficients on my machine (<code>Intel i7-7500U CPU @ 2.70GHz</code>) are:</p>
+<pre><code>Benchmark                            Mode   Cnt    Score    Error   Units
+evaluatePolynomialClassic           thrpt     3    0.065 ±  0.026  ops/ms
+evaluatePolynomialHorner            thrpt     3    0.135 ±  0.072  ops/ms
+evaluatePolynomialClassic            avgt     3   23.294 ± 48.218   ms/op
+evaluatePolynomialHorner             avgt     3    8.756 ± 30.397   ms/op
+evaluatePolynomialClassic          sample  1048   28.631 ±  1.211   ms/op
+evaluatePolynomialClassic·p0.00    sample         12.550            ms/op
+evaluatePolynomialClassic·p0.50    sample         25.330            ms/op
+evaluatePolynomialClassic·p0.90    sample         45.181            ms/op
+evaluatePolynomialClassic·p0.95    sample         53.549            ms/op
+evaluatePolynomialClassic·p0.99    sample         67.898            ms/op
+evaluatePolynomialClassic·p0.999   sample        102.723            ms/op
+evaluatePolynomialClassic·p0.9999  sample        103.154            ms/op
+evaluatePolynomialClassic·p1.00    sample        103.154            ms/op
+evaluatePolynomialHorner           sample  7838    3.823 ±  0.018   ms/op
+evaluatePolynomialHorner·p0.00     sample          3.453            ms/op
+evaluatePolynomialHorner·p0.50     sample          3.678            ms/op
+evaluatePolynomialHorner·p0.90     sample          4.293            ms/op
+evaluatePolynomialHorner·p0.95     sample          4.645            ms/op
+evaluatePolynomialHorner·p0.99     sample          6.070            ms/op
+evaluatePolynomialHorner·p0.999    sample          7.196            ms/op
+evaluatePolynomialHorner·p0.9999   sample         12.157            ms/op
+evaluatePolynomialHorner·p1.00     sample         12.157            ms/op
+evaluatePolynomialClassic              ss     3   24.851 ± 33.086   ms/op
+evaluatePolynomialHorner               ss     3   17.525 ± 11.917   ms/op
+</code></pre>
+<p>As we can see in the outcome above, the classic evaluation is easily outperformed by the Horner&rsquo;s method, sometimes being 8x faster than the classic one.</p>
+<p>Later on we&rsquo;ll see if there are any actual usages out there in the real world.</p>
+
+
+              
+          </article>
+          
+
+<ul class="tags__list">
+    
+    <li class="tag__item">
+        <a class="tag__link" href="agbuzneanu.com/tags/polynomial/">polynomial</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="agbuzneanu.com/tags/math/">math</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="agbuzneanu.com/tags/scala/">scala</a>
+    </li></ul>
+
+ <div class="pagination">
+  
+
+  
+</div>
+
+          
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+      <a class="social-icons__link" title="GitHub"
+         href="https://github.com/alexgb1"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('agbuzneanu.com/svg/github.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" title="LinkedIn"
+         href="https://www.linkedin.com/in/alexandru-gabriel-buzneanu-72565393"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('agbuzneanu.com/svg/linkedin.svg')"></div>
+      </a>
+    
+     
+</div>
+
+            <p>© 2020</p>
+          </footer>
+          </div>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="/agbuzneanu.com/js/index.min.dd7d0d377e9cb18d4a8a9fd1a9cd3c7a9c773f5e67ca7e39635d56038a53b0d1.js" integrity="sha256-3X0NN36csY1Kip/Rqc08epx3P15nyn45Y11WA4pTsNE=" crossorigin="anonymous"></script>
+  
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/components/prism-core.min.js"></script>
+
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js"
+    data-autoloader-path="https://unpkg.com/prismjs@1.20.0/components/"></script>
+
+  
+
+
+</body>
+
+</html>

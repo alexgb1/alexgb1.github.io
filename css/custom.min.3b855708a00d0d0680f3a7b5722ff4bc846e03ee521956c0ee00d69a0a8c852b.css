@@ -1,0 +1,1 @@
+@media(prefers-color-scheme:dark){body{background-color:#000;color:#fff}}@media(prefers-color-scheme:light){body{background-color:#fff;color:#000}}.switchme.dark{background-color:#1e2227;color:#fff}body.dark code[class*=language-],body.dark table tbody>tr:nth-child(odd)>td,body.dark table tbody>tr:nth-child(odd)>th{background:#282c34}

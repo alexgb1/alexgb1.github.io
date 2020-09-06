@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>math on alexgb1</title>
+    <link>agbuzneanu.com/tags/math/</link>
+    <description>Recent content in math on alexgb1</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Sun, 06 Sep 2020 12:15:14 +0100</lastBuildDate>
+    
+	<atom:link href="agbuzneanu.com/tags/math/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Faster Polynomial Evaluation</title>
+      <link>agbuzneanu.com/blog/faster-polynomial-evaluation/</link>
+      <pubDate>Sun, 06 Sep 2020 12:15:14 +0100</pubDate>
+      
+      <guid>agbuzneanu.com/blog/faster-polynomial-evaluation/</guid>
+      <description>This might not be one of your daily problems. Evaluating polynomials seems to be a simple task until the coefficients become big numbers, e.g. 1024 bits or more, and could impact your whole software component.
+Classic evaluation A simple way to evaluate a polynomial is:
+def classicCompute(variable: BigInt): BigInt = { coefficients .zipWithIndex .foldLeft(BigInt(0)) { case (accumulator, (coefficient, i)) =&amp;gt; accumulator + coefficient * variable.pow(i) } }  Optimized evaluation In order to optimize a polynomial evaluation, one could use Horner&amp;rsquo;s method, which implies a significant improvement when using big numbers.</description>
+    </item>
+    
+  </channel>
+</rss>

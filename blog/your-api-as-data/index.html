@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <title>Your API as Data | alexgb1</title>
+
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description" content="">
+  <meta name="keywords" content="scala , api , strongly-typed">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+  
+  
+    
+ 
+  
+  
+  
+  
+  
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/post.min.2cb93c91050d1853bf971cc31e00122edd6e0f405aa1de3b7f8ef67ea3b5a79a.css" integrity="sha256-LLk8kQUNGFO/lxzDHgASLt1uD0Baod47f472fqO1p5o="/>
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
+  
+  
+   
+   
+    
+
+<script type="application/ld+json">
+  
+    {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/agbuzneanu.com"
+      },
+      "articleSection" : "blog",
+      "name" : "Your API as Data",
+      "headline" : "Your API as Data",
+      "description" : "",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2020",
+      "datePublished": "2020-09-13 10:51:31 \u002b0100 BST",
+      "dateModified" : "2020-09-13 10:51:31 \u002b0100 BST",
+      "url" : "https:\/\/agbuzneanu.com\/blog\/your-api-as-data\/",
+      "wordCount" : "549",
+      "keywords" : ["scala", "api", "strongly-typed", "Blog"]
+    }
+  
+  </script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-23997013-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</head>
+
+<body class="switchme">
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
+  </div>
+</div>
+ 
+
+  <nav class="nav switchme" id="navigation">
+  <ul class="nav__list">
+    
+    
+      <li>
+        <a  href="/"> home</a>
+      </li>
+    
+      <li>
+        <a  class="active"
+         href="/blog">blog</a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+
+  <main>
+    
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">Your API as Data</h1>
+            <time datetime="2020-09-13 10:51:31 &#43;0100 BST" class="post__date"
+            >Sep 13 2020</time>
+          </header>
+          <article class="post__content">
+              
+<p>If you are interested in the correctness of your Web API, you should consider building a <strong>strongly typed</strong> integration between the client and the server.</p>
+<h2 id="just-the-usual">Just the usual<a class="anchor" href="#just-the-usual">#</a></h2>
+<p>In most of the businesses defining an API and using it in practice can be quite prone to errors.</p>
+<p>Every Scala HTTP library has its own approach in building and defining endpoints, requests and responses which can become tedious in maintaining.</p>
+<p>Morever, there&rsquo;s no support to properly document the APIs, <em>this means that the documentation is manually defined which will eventually lead to integration errors</em>.</p>
+<p>However, the most important is that there&rsquo;s <em>no compile-time guarantee</em> that the requests are well-formed and that the client will correctly communicate with the server.</p>
+<h2 id="potential-to-improve">Potential to improve<a class="anchor" href="#potential-to-improve">#</a></h2>
+<p>I recommend having a look at <a href="https://tapir.softwaremill.com/en/latest/">Tapir</a> or <a href="https://endpoints4s.github.io/">Endpoints4s</a>.</p>
+<p>The benefits of using any of these libraries are immediate. It involves defining the endpoints as Scala immutable values, there&rsquo;s no code generation and one would only <strong>define the API once and interpret it into a client, server and documentation</strong>.</p>
+<h2 id="example-using-tapir">Example using Tapir<a class="anchor" href="#example-using-tapir">#</a></h2>
+<p>Let the next class be our simple core model:</p>
+<pre><code class="language-scala">case class Appointment(
+   email: String, 
+   address: String,
+   slot: String
+)
+
+</code></pre>
+<h4 id="api-definition">API definition</h4>
+<p>One requirement would be to build an API which defines the retrieving of an appointment by a given id:</p>
+<pre><code class="language-scala">
+val getAppointmentById = endpoint // Empty endpoint provided by Tapir
+   .in(&quot;appointments&quot;) // Endpoint path
+   .in(query[String](&quot;id&quot;)) // Query parameter id
+   .out(jsonBody[Appointment]) // Response body as json of Appointment
+   .errorOut(
+     oneOf[Error](
+       statusMapping(StatusCode.NotFound, jsonBody[NotFound])
+     )
+   ) // Error response and status code mapping
+
+</code></pre>
+<p>where our error is represented by a simple ADT:</p>
+<pre><code class="language-scala">sealed trait Error
+case class NotFound(message: String) extends Error
+</code></pre>
+<p>Even without the additional comments the code is quite readable. We can easily notice what is supposed to go in the endpoint and out of it, as well as which errors are to be expected.</p>
+<h4 id="server">Server</h4>
+<p>Given the API definition, one could start building the web server in its preferred stack. (In this case <a href="https://http4s.org/">http4s</a>).</p>
+<pre><code class="language-scala">
+val getAppointment: String =&gt; IO[Either[Error, Appointment]] =
+  id =&gt; IO {
+    Appointment
+      .appointments
+      .get(id)
+      .toRight(NotFound(&quot;Appointment is not found&quot;))
+    
+  }// Business logic to retrieve an appointment from some data source
+
+val httpRoute: HttpRoutes[IO] = getAppointmentById.toRoutes(getAppointment)
+
+</code></pre>
+<h4 id="documentation">Documentation</h4>
+<p>Similar to constructing the http route, building the documentation only implies creating an OpenAPI definition using Tapir and then building a route to represent the view of the documentation.</p>
+<pre><code class="language-scala">val docs: OpenAPI = getAppointmentById.toOpenAPI(&quot;My API&quot;, &quot;1&quot;)
+val docsRoute: HttpRoutes[IO] = new SwaggerHttp4s(docs.toYaml).routes
+</code></pre>
+<h4 id="swagger-openapi-example">Swagger OpenAPI example</h4>
+<p>The output of the <code>docsRoute</code> can be accessed by default under <code>/docs</code> :
+<!-- raw HTML omitted --></p>
+<figure>
+    <img src="/swagger-example-1.png"/> 
+</figure>
+
+<p>Where the API request/response definition is:</p>
+<figure>
+    <img src="/swagger-example-2.png"/> 
+</figure>
+
+<h4 id="client">Client</h4>
+<p>On the client side, a function to create requests is built out of the endpoint definition. A request is obtained by applying the function to the given input, in this case an account Id. To send the request to the server use the <a href="https://tapir.softwaremill.com/en/latest/sttp.html">STTP client</a>.</p>
+<pre><code class="language-scala">val requestCreator = getAppointmentById.toSttpRequest(uri&quot;http://server.host:8081&quot;)
+
+val response = client.send(requestCreator(&quot;some-appointment-id&quot;))
+</code></pre>
+<h4 id="recap">Recap</h4>
+<p>Out of a Scala case class which describes an endpoint, one can obtain a server, documentation and a client without any additional build steps or code generation and benefit from a compile-time checked integration between the client and the server.</p>
+<p>Both <a href="https://tapir.softwaremill.com/en/latest/">Tapir</a> and <a href="https://endpoints4s.github.io/">Endpoints4s</a> are quite powerful and extensible. Both support multiple popular Scala HTTP libraries, such as <a href="https://doc.akka.io/docs/akka-http/current/index.html">Akka</a>, <a href="https://http4s.org/">http4s</a> or <a href="https://twitter.github.io/finatra/">Finatra</a>.</p>
+<p>For the full example please see <a href="https://github.com/alexgb1/demo-http-api-as-data">demo</a>.</p>
+
+
+              
+          </article>
+          
+
+<ul class="tags__list">
+    
+    <li class="tag__item">
+        <a class="tag__link" href="https://agbuzneanu.com/tags/scala/">scala</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="https://agbuzneanu.com/tags/api/">api</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="https://agbuzneanu.com/tags/strongly-typed/">strongly-typed</a>
+    </li></ul>
+
+ <div class="pagination">
+  
+    <a class="pagination__item" href="https://agbuzneanu.com/blog/faster-polynomial-evaluation/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">Faster Polynomial Evaluation</span>
+    </a>
+  
+
+  
+</div>
+
+          
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+      <a class="social-icons__link" title="GitHub"
+         href="https://github.com/alexgb1"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://agbuzneanu.com/svg/github.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" title="LinkedIn"
+         href="https://www.linkedin.com/in/alexandru-gabriel-buzneanu-72565393"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://agbuzneanu.com/svg/linkedin.svg')"></div>
+      </a>
+    
+     
+</div>
+
+            <p>© 2020</p>
+          </footer>
+          </div>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="/js/index.min.dd7d0d377e9cb18d4a8a9fd1a9cd3c7a9c773f5e67ca7e39635d56038a53b0d1.js" integrity="sha256-3X0NN36csY1Kip/Rqc08epx3P15nyn45Y11WA4pTsNE=" crossorigin="anonymous"></script>
+  
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/components/prism-core.min.js"></script>
+
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js"
+    data-autoloader-path="https://unpkg.com/prismjs@1.20.0/components/"></script>
+
+  
+
+
+</body>
+
+</html>

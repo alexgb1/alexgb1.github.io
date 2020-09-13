@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Sun, 06 Sep 2020 12:15:14 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 13 Sep 2020 10:51:31 +0100</lastBuildDate>
     
 	<atom:link href="https://agbuzneanu.com/tags/scala/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Your API as Data</title>
+      <link>https://agbuzneanu.com/blog/your-api-as-data/</link>
+      <pubDate>Sun, 13 Sep 2020 10:51:31 +0100</pubDate>
+      
+      <guid>https://agbuzneanu.com/blog/your-api-as-data/</guid>
+      <description>If you are interested in the correctness of your Web API, you should consider building a strongly typed integration between the client and the server.
+Just the usual In most of the businesses defining an API and using it in practice can be quite prone to errors.
+Every Scala HTTP library has its own approach in building and defining endpoints, requests and responses which can become tedious in maintaining.
+Morever, there&amp;rsquo;s no support to properly document the APIs, this means that the documentation is manually defined which will eventually lead to integration errors.</description>
+    </item>
     
     <item>
       <title>Faster Polynomial Evaluation</title>

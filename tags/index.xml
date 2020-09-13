@@ -7,10 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Sun, 06 Sep 2020 12:15:14 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 13 Sep 2020 10:51:31 +0100</lastBuildDate>
     
 	<atom:link href="https://agbuzneanu.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>api</title>
+      <link>https://agbuzneanu.com/tags/api/</link>
+      <pubDate>Sun, 13 Sep 2020 10:51:31 +0100</pubDate>
+      
+      <guid>https://agbuzneanu.com/tags/api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>scala</title>
+      <link>https://agbuzneanu.com/tags/scala/</link>
+      <pubDate>Sun, 13 Sep 2020 10:51:31 +0100</pubDate>
+      
+      <guid>https://agbuzneanu.com/tags/scala/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>strongly-typed</title>
+      <link>https://agbuzneanu.com/tags/strongly-typed/</link>
+      <pubDate>Sun, 13 Sep 2020 10:51:31 +0100</pubDate>
+      
+      <guid>https://agbuzneanu.com/tags/strongly-typed/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>math</title>
@@ -27,15 +54,6 @@
       <pubDate>Sun, 06 Sep 2020 12:15:14 +0100</pubDate>
       
       <guid>https://agbuzneanu.com/tags/polynomial/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>scala</title>
-      <link>https://agbuzneanu.com/tags/scala/</link>
-      <pubDate>Sun, 06 Sep 2020 12:15:14 +0100</pubDate>
-      
-      <guid>https://agbuzneanu.com/tags/scala/</guid>
       <description></description>
     </item>
     

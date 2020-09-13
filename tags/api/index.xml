@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blogs on alexgb1</title>
-    <link>https://agbuzneanu.com/blog/</link>
-    <description>Recent content in Blogs on alexgb1</description>
+    <title>api on alexgb1</title>
+    <link>https://agbuzneanu.com/tags/api/</link>
+    <description>Recent content in api on alexgb1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
     <lastBuildDate>Sun, 13 Sep 2020 10:51:31 +0100</lastBuildDate>
     
-	<atom:link href="https://agbuzneanu.com/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://agbuzneanu.com/tags/api/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -22,17 +22,6 @@
 Just the usual In most of the businesses defining an API and using it in practice can be quite prone to errors.
 Every Scala HTTP library has its own approach in building and defining endpoints, requests and responses which can become tedious in maintaining.
 Morever, there&amp;rsquo;s no support to properly document the APIs, this means that the documentation is manually defined which will eventually lead to integration errors.</description>
-    </item>
-    
-    <item>
-      <title>Faster Polynomial Evaluation</title>
-      <link>https://agbuzneanu.com/blog/faster-polynomial-evaluation/</link>
-      <pubDate>Sun, 06 Sep 2020 12:15:14 +0100</pubDate>
-      
-      <guid>https://agbuzneanu.com/blog/faster-polynomial-evaluation/</guid>
-      <description>This might not be one of your daily problems. Evaluating polynomials seems to be a simple task until the coefficients become big numbers, e.g. 1024 bits or more, and could impact your whole software component.
-Classic evaluation A simple way to evaluate a polynomial is:
-def classicCompute(variable: BigInt): BigInt = { coefficients .zipWithIndex .foldLeft(BigInt(0)) { case (accumulator, (coefficient, i)) =&amp;gt; accumulator + coefficient * variable.pow(i) } }  Optimized evaluation In order to optimize a polynomial evaluation, one could use Horner&amp;rsquo;s method, which implies a significant improvement when using big numbers.</description>
     </item>
     
   </channel>

@@ -159,7 +159,7 @@ case class NotFound(message: String) extends Error
 </code></pre>
 <p>Even without the additional comments the code is quite readable. We can easily notice what is supposed to go in the endpoint and out of it, as well as which errors are expected.</p>
 <h4 id="server">Server</h4>
-<p>Given the API definition, one could start building the web server in its preferred stack. (In this case <a href="https://http4s.org/">http4s</a>).</p>
+<p>Given the API definition, one could start building the web server in its preferred stack. (In this case <a href="https://http4s.org/">http4s</a>)</p>
 <pre><code class="language-scala">
 val getAppointment: String =&gt; IO[Either[Error, Appointment]] =
   id =&gt; IO {

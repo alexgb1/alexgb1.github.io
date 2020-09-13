@@ -61,7 +61,7 @@
       "datePublished": "2020-09-13 10:51:31 \u002b0100 BST",
       "dateModified" : "2020-09-13 10:51:31 \u002b0100 BST",
       "url" : "https:\/\/agbuzneanu.com\/blog\/your-api-as-data\/",
-      "wordCount" : "544",
+      "wordCount" : "552",
       "keywords" : ["scala", "api", "strongly-typed", "Blog"]
     }
   
@@ -125,7 +125,7 @@ if (!doNotTrack) {
 <h2 id="just-the-usual">Just the usual<a class="anchor" href="#just-the-usual">#</a></h2>
 <p>In most cases, defining an API and using it can be quite prone to errors.</p>
 <p>Every Scala HTTP library has its own approach in building and defining endpoints, requests and responses which can become tedious in maintaining.</p>
-<p>Morever, there&rsquo;s no support to properly document the APIs, <em>this means that the documentation is manually defined which will eventually lead to integration errors</em>.</p>
+<p>Morever, there&rsquo;s no support to properly document the APIs, <em>this means that the documentation is manually defined which will eventually lead to integration errors due to becoming outdated or to simple mistakes</em>.</p>
 <p>However, the most important aspect is that there&rsquo;s <em>no compile-time guarantee</em> that the requests are well-formed and that the client will correctly communicate with the server.</p>
 <h2 id="potential-to-improve">Potential to improve<a class="anchor" href="#potential-to-improve">#</a></h2>
 <p>I recommend having a look at <a href="https://tapir.softwaremill.com/en/latest/">Tapir</a> or <a href="https://endpoints4s.github.io/">Endpoints4s</a>.</p>
@@ -159,7 +159,7 @@ case class NotFound(message: String) extends Error
 </code></pre>
 <p>Even without the additional comments the code is quite readable. We can easily notice what is supposed to go in the endpoint and out of it, as well as which errors are expected.</p>
 <h4 id="server">Server</h4>
-<p>Given the API definition, one could start building the web server in its preferred stack. (In this case <a href="https://http4s.org/">http4s</a>)</p>
+<p>Given the API definition, one could start building the web server in their preferred stack. (In this case <a href="https://http4s.org/">http4s</a>)</p>
 <pre><code class="language-scala">
 val getAppointment: String =&gt; IO[Either[Error, Appointment]] =
   id =&gt; IO {

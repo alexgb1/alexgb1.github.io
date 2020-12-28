@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Sun, 13 Sep 2020 10:51:31 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 28 Dec 2020 11:13:43 +0100</lastBuildDate>
     
 	<atom:link href="https://agbuzneanu.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Secret Sharing</title>
+      <link>https://agbuzneanu.com/blog/secret-sharing/</link>
+      <pubDate>Mon, 28 Dec 2020 11:13:43 +0100</pubDate>
+      
+      <guid>https://agbuzneanu.com/blog/secret-sharing/</guid>
+      <description>The general idea of secret sharing begins with a secret which is divided into multiple pieces called shares, where each share is assigned to a user in such a manner that a given subset of shares from users can be used to reconstruct the original secret.
+The motivation for this concept is related to the ability to safeguard cryptographic keys from loss or exposure. Secret sharing schemes are multi-party protocols related to the key establishment, where for example a private key in an asymmetric cryptosystem can be split between multiple entities for safely controlling decryption or signature creation.</description>
+    </item>
     
     <item>
       <title>Your API as Data</title>

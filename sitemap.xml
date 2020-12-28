@@ -4,7 +4,42 @@
   
   <url>
     <loc>https://agbuzneanu.com/</loc>
-    <lastmod>2020-09-13T10:51:31+01:00</lastmod>
+    <lastmod>2020-12-28T11:13:43+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agbuzneanu.com/blog/</loc>
+    <lastmod>2020-12-28T11:13:43+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agbuzneanu.com/tags/math/</loc>
+    <lastmod>2020-12-28T11:13:43+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agbuzneanu.com/tags/polynomial/</loc>
+    <lastmod>2020-12-28T11:13:43+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agbuzneanu.com/tags/scala/</loc>
+    <lastmod>2020-12-28T11:13:43+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agbuzneanu.com/blog/secret-sharing/</loc>
+    <lastmod>2020-12-28T11:13:43+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agbuzneanu.com/tags/secret-sharing/</loc>
+    <lastmod>2020-12-28T11:13:43+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agbuzneanu.com/tags/</loc>
+    <lastmod>2020-12-28T11:13:43+01:00</lastmod>
   </url>
   
   <url>
@@ -13,22 +48,7 @@
   </url>
   
   <url>
-    <loc>https://agbuzneanu.com/blog/</loc>
-    <lastmod>2020-09-13T10:51:31+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://agbuzneanu.com/tags/scala/</loc>
-    <lastmod>2020-09-13T10:51:31+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://agbuzneanu.com/tags/strongly-typed/</loc>
-    <lastmod>2020-09-13T10:51:31+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://agbuzneanu.com/tags/</loc>
     <lastmod>2020-09-13T10:51:31+01:00</lastmod>
   </url>
   
@@ -39,16 +59,6 @@
   
   <url>
     <loc>https://agbuzneanu.com/blog/faster-polynomial-evaluation/</loc>
-    <lastmod>2020-09-06T12:15:14+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://agbuzneanu.com/tags/math/</loc>
-    <lastmod>2020-09-06T12:15:14+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://agbuzneanu.com/tags/polynomial/</loc>
     <lastmod>2020-09-06T12:15:14+01:00</lastmod>
   </url>
   

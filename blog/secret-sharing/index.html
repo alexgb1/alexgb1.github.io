@@ -136,7 +136,7 @@ The source code can be found <a href="https://github.com/alexgb1/secret-sharing/
 <li>$TP$ computes $S_i=f(i) mod \ P$, for $0 \leq i \leq P-1$, and transfers each share $S_i$, in a secure manner, to user $U_i$, along with its public index $i$. The source code can be found <a href="https://github.com/alexgb1/secret-sharing/blob/main/src/main/scala/org/example/secretsharing/shamir/ShamirSecretSharingScheme.scala#L14">here</a>.</li>
 </ol>
 <h3 id="reconstruction-phase">Reconstruction phase<a class="anchor" href="#reconstruction-phase">#</a></h3>
-<p>In the <em>reconstruction</em> phase, any group of $t$ or more users pool their shares as distinct points $(x, y) = (i, S_i)$, can compute the coefficients $a_j, 1 \leq j \leq t-1 $ of $f(x)$ by using the <a href="https://en.wikipedia.org/wiki/Lagrange_polynomial">Lagrange interpolation</a>. Using the computed coefficients, the secret can be recovered from $f(0) = S$. Since $f(0) = S$, the shared secret can be expressed as:</p>
+<p>In the <em>reconstruction</em> phase, any group of $t$ or more users pool their shares as distinct points $(x, y) = (i, S_i)$, can compute the coefficients $c_j, 1 \leq j \leq t-1 $ of $f(x)$ by using the <a href="https://en.wikipedia.org/wiki/Lagrange_polynomial">Lagrange interpolation</a>. Using the computed coefficients, the secret can be recovered from $f(0) = S$. Since $f(0) = S$, the shared secret can be expressed as:</p>
 <p>$$S = \sum_{i=1}^{t}k_i y_i$$ where $ k_i $ is: $$k_i = \prod_{j=1, j \neq i}^{t} \frac{x_j}{x_j - x_i}$$</p>
 <p>The source code can be found <a href="https://github.com/alexgb1/secret-sharing/blob/main/src/main/scala/org/example/secretsharing/shamir/ShamirSecretSharingScheme.scala#L22">here</a>.</p>
 <h3 id="properties">Properties<a class="anchor" href="#properties">#</a></h3>
@@ -221,7 +221,7 @@ The source code can be found <a href="https://github.com/alexgb1/secret-sharing/
      
 </div>
 
-            <p>© 2020</p>
+            <p>© 2021</p>
           </footer>
           </div>
       </div>

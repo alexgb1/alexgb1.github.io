@@ -2,67 +2,67 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on alexgb1</title>
-    <link>https://agbuzneanu.com/tags/</link>
+    <link>https://alexgb.co.uk/tags/</link>
     <description>Recent content in Tags on alexgb1</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
     <lastBuildDate>Mon, 28 Dec 2020 11:13:43 +0100</lastBuildDate>
     
-	<atom:link href="https://agbuzneanu.com/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://alexgb.co.uk/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>math</title>
-      <link>https://agbuzneanu.com/tags/math/</link>
+      <link>https://alexgb.co.uk/tags/math/</link>
       <pubDate>Mon, 28 Dec 2020 11:13:43 +0100</pubDate>
       
-      <guid>https://agbuzneanu.com/tags/math/</guid>
+      <guid>https://alexgb.co.uk/tags/math/</guid>
       <description></description>
     </item>
     
     <item>
       <title>polynomial</title>
-      <link>https://agbuzneanu.com/tags/polynomial/</link>
+      <link>https://alexgb.co.uk/tags/polynomial/</link>
       <pubDate>Mon, 28 Dec 2020 11:13:43 +0100</pubDate>
       
-      <guid>https://agbuzneanu.com/tags/polynomial/</guid>
+      <guid>https://alexgb.co.uk/tags/polynomial/</guid>
       <description></description>
     </item>
     
     <item>
       <title>scala</title>
-      <link>https://agbuzneanu.com/tags/scala/</link>
+      <link>https://alexgb.co.uk/tags/scala/</link>
       <pubDate>Mon, 28 Dec 2020 11:13:43 +0100</pubDate>
       
-      <guid>https://agbuzneanu.com/tags/scala/</guid>
+      <guid>https://alexgb.co.uk/tags/scala/</guid>
       <description></description>
     </item>
     
     <item>
       <title>secret-sharing</title>
-      <link>https://agbuzneanu.com/tags/secret-sharing/</link>
+      <link>https://alexgb.co.uk/tags/secret-sharing/</link>
       <pubDate>Mon, 28 Dec 2020 11:13:43 +0100</pubDate>
       
-      <guid>https://agbuzneanu.com/tags/secret-sharing/</guid>
+      <guid>https://alexgb.co.uk/tags/secret-sharing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>api</title>
-      <link>https://agbuzneanu.com/tags/api/</link>
+      <link>https://alexgb.co.uk/tags/api/</link>
       <pubDate>Sun, 13 Sep 2020 10:51:31 +0100</pubDate>
       
-      <guid>https://agbuzneanu.com/tags/api/</guid>
+      <guid>https://alexgb.co.uk/tags/api/</guid>
       <description></description>
     </item>
     
     <item>
       <title>strongly-typed</title>
-      <link>https://agbuzneanu.com/tags/strongly-typed/</link>
+      <link>https://alexgb.co.uk/tags/strongly-typed/</link>
       <pubDate>Sun, 13 Sep 2020 10:51:31 +0100</pubDate>
       
-      <guid>https://agbuzneanu.com/tags/strongly-typed/</guid>
+      <guid>https://alexgb.co.uk/tags/strongly-typed/</guid>
       <description></description>
     </item>
     

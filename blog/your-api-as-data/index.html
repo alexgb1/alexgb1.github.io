@@ -17,6 +17,7 @@
 
   <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
 
+
   
   
     
@@ -28,7 +29,7 @@
   
   
     
-    <link type="text/css" rel="stylesheet" href="/css/post.min.2cb93c91050d1853bf971cc31e00122edd6e0f405aa1de3b7f8ef67ea3b5a79a.css" integrity="sha256-LLk8kQUNGFO/lxzDHgASLt1uD0Baod47f472fqO1p5o="/>
+    <link type="text/css" rel="stylesheet" href="/css/post.min.86d1effd4c412b85ac13db53a90c473a0f256f789b821e131125c9aa25cb6a6d.css" integrity="sha256-htHv/UxBK4WsE9tTqQxHOg8lb3ibgh4TESXJqiXLam0="/>
   
     
     <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
@@ -45,7 +46,7 @@
       "@type" : "BlogPosting",
       "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/alexgb.co.uk"
+            "@id": "https:\/\/alexgb1.github.io\/"
       },
       "articleSection" : "blog",
       "name" : "Your API as Data",
@@ -60,26 +61,16 @@
       "copyrightYear" : "2020",
       "datePublished": "2020-09-13 10:51:31 \u002b0100 BST",
       "dateModified" : "2020-09-13 10:51:31 \u002b0100 BST",
-      "url" : "https:\/\/alexgb.co.uk\/blog\/your-api-as-data\/",
+      "url" : "https:\/\/alexgb1.github.io\/blog\/your-api-as-data\/",
       "wordCount" : "552",
       "keywords" : ["scala", "api", "strongly-typed", "Blog"]
     }
   
   </script>
 
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-23997013-2', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
 </head>
 
-<body class="switchme">
+<body>
   <div class="burger__container">
   <div class="burger" aria-controls="navigation" aria-label="Menu">
     <div class="burger__meat burger__meat--1"></div>
@@ -89,7 +80,7 @@ if (!doNotTrack) {
 </div>
  
 
-  <nav class="nav switchme" id="navigation">
+  <nav class="nav" id="navigation">
   <ul class="nav__list">
     
     
@@ -106,7 +97,6 @@ if (!doNotTrack) {
 </nav>
 
 
-
   <main>
     
     
@@ -116,8 +106,7 @@ if (!doNotTrack) {
         <div class="post">
           <header class="post__header">
             <h1 id="post__title">Your API as Data</h1>
-            <time datetime="2020-09-13 10:51:31 &#43;0100 BST" class="post__date"
-            >Sep 13 2020</time>
+            <time datetime="2020-09-13 10:51:31 &#43;0100 BST" class="post__date">Sep 13 2020</time> 
           </header>
           <article class="post__content">
               
@@ -128,7 +117,13 @@ if (!doNotTrack) {
 <p>Morever, there&rsquo;s no support to properly document the APIs, <em>this means that the documentation is manually defined which will eventually lead to integration errors due to becoming outdated or to simple mistakes</em>.</p>
 <p>However, the most important aspect is that there&rsquo;s <em>no compile-time guarantee</em> that the requests are well-formed and that the client will correctly communicate with the server.</p>
 <h2 id="potential-to-improve">Potential to improve<a class="anchor" href="#potential-to-improve">#</a></h2>
-<p>I recommend having a look at <a href="https://tapir.softwaremill.com/en/latest/">Tapir</a> or <a href="https://endpoints4s.github.io/">Endpoints4s</a>.</p>
+<p>I recommend having a look at <a href="https://tapir.softwaremill.com/en/latest/" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>Tapir</a> or <a href="https://endpoints4s.github.io/" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>Endpoints4s</a>.</p>
 <p>The benefits of using any of these libraries are immediate. It involves defining the endpoints as Scala immutable values, there&rsquo;s no code generation and one would only <strong>define the API once and interpret it into a client, server and documentation</strong>.</p>
 <h2 id="example-using-tapir">Example using Tapir<a class="anchor" href="#example-using-tapir">#</a></h2>
 <p>Let the next class be our simple core model:</p>
@@ -159,7 +154,10 @@ case class NotFound(message: String) extends Error
 </code></pre>
 <p>Even without the additional comments the code is quite readable. We can easily notice what is supposed to go in the endpoint and out of it, as well as which errors are expected.</p>
 <h4 id="server">Server</h4>
-<p>Given the API definition, one could start building the web server in their preferred stack. (In this case <a href="https://http4s.org/">http4s</a>)</p>
+<p>Given the API definition, one could start building the web server in their preferred stack. (In this case <a href="https://http4s.org/" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>http4s</a>)</p>
 <pre><code class="language-scala">
 val getAppointment: String =&gt; IO[Either[Error, Appointment]] =
   id =&gt; IO {
@@ -181,25 +179,44 @@ val docsRoute: HttpRoutes[IO] = new SwaggerHttp4s(docs.toYaml).routes
 <h4 id="swagger-openapi-example">Swagger OpenAPI example</h4>
 <p>The output of the <code>docsRoute</code> can be accessed by default under <code>/docs</code> :
 <!-- raw HTML omitted --></p>
-<figure>
-    <img src="/swagger-example-1.png"/> 
+<figure><img src="/swagger-example-1.png">
 </figure>
 
 <p>Where the API request/response definition is:</p>
-<figure>
-    <img src="/swagger-example-2.png"/> 
+<figure><img src="/swagger-example-2.png">
 </figure>
 
 <h4 id="client">Client</h4>
-<p>On the client side, a function to create requests is built out of the endpoint definition. A request is obtained by applying the function to the given input, in this case an account Id. To send the request to the server use the <a href="https://tapir.softwaremill.com/en/latest/sttp.html">STTP client</a>.</p>
+<p>On the client side, a function to create requests is built out of the endpoint definition. A request is obtained by applying the function to the given input, in this case an account Id. To send the request to the server use the <a href="https://tapir.softwaremill.com/en/latest/sttp.html" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>STTP client</a>.</p>
 <pre><code class="language-scala">val requestCreator = getAppointmentById.toSttpRequest(uri&quot;http://server.host:8081&quot;)
 
 val response = client.send(requestCreator(&quot;some-appointment-id&quot;))
 </code></pre>
 <h4 id="recap">Recap</h4>
 <p>Out of a Scala case class which describes an endpoint, one can obtain a server, documentation and a client without any additional build steps or code generation and benefit from a compile-time checked integration between the client and the server.</p>
-<p>Both <a href="https://tapir.softwaremill.com/en/latest/">Tapir</a> and <a href="https://endpoints4s.github.io/">Endpoints4s</a> are quite powerful and extensible. Both support multiple popular Scala HTTP libraries, such as <a href="https://doc.akka.io/docs/akka-http/current/index.html">Akka</a>, <a href="https://http4s.org/">http4s</a> or <a href="https://twitter.github.io/finatra/">Finatra</a>.</p>
-<p>For the full example please see <a href="https://github.com/alexgb1/demo-http-api-as-data">demo</a>.</p>
+<p>Both <a href="https://tapir.softwaremill.com/en/latest/" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>Tapir</a> and <a href="https://endpoints4s.github.io/" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>Endpoints4s</a> are quite powerful and extensible. Both support multiple popular Scala HTTP libraries, such as <a href="https://doc.akka.io/docs/akka-http/current/index.html" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>Akka</a>, <a href="https://http4s.org/" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>http4s</a> or <a href="https://twitter.github.io/finatra/" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>Finatra</a>.</p>
+<p>For the full example please see <a href="https://github.com/alexgb1/demo-http-api-as-data" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>demo</a>.</p>
 
 
               
@@ -209,27 +226,27 @@ val response = client.send(requestCreator(&quot;some-appointment-id&quot;))
 <ul class="tags__list">
     
     <li class="tag__item">
-        <a class="tag__link" href="https://alexgb.co.uk/tags/scala/">scala</a>
+        <a class="tag__link" href="https://alexgb1.github.io/tags/scala/">scala</a>
     </li>
     <li class="tag__item">
-        <a class="tag__link" href="https://alexgb.co.uk/tags/api/">api</a>
+        <a class="tag__link" href="https://alexgb1.github.io/tags/api/">api</a>
     </li>
     <li class="tag__item">
-        <a class="tag__link" href="https://alexgb.co.uk/tags/strongly-typed/">strongly-typed</a>
+        <a class="tag__link" href="https://alexgb1.github.io/tags/strongly-typed/">strongly-typed</a>
     </li></ul>
 
  <div class="pagination">
   
-    <a class="pagination__item" href="https://alexgb.co.uk/blog/faster-polynomial-evaluation/">
+    <a class="pagination__item" href="https://alexgb1.github.io/blog/faster-polynomial-evaluation/">
         <span class="pagination__label">Previous Post</span>
         <span class="pagination__title">Faster Polynomial Evaluation</span>
     </a>
   
 
   
-    <a class="pagination__item" href="https://alexgb.co.uk/blog/secret-sharing/">
+    <a class="pagination__item" href="https://alexgb1.github.io/blog/secret-sharing/">
       <span class="pagination__label">Next Post</span>
-      <span class="pagination__title" >Secret Sharing</a>
+      <span class="pagination__title" >Secret Sharing</span>
     </a>
   
 </div>
@@ -243,25 +260,33 @@ val response = client.send(requestCreator(&quot;some-appointment-id&quot;))
   
      
     
-      <a class="social-icons__link" title="GitHub"
-         href="https://github.com/alexgb1"
-         target="_blank" rel="noopener">
-        <div class="social-icons__icon" style="background-image: url('https://alexgb.co.uk/svg/github.svg')"></div>
+      <a
+        class="social-icons__link"
+        title="GitHub"
+        href="https://github.com/alexgb1"
+        target="_blank"
+        rel="me noopener"
+      >
+        <div class="social-icons__icon" style="background-image: url('https://alexgb1.github.io/svg/github.svg')"></div>
       </a>
     
   
      
     
-      <a class="social-icons__link" title="LinkedIn"
-         href="https://www.linkedin.com/in/alexandru-gabriel-buzneanu-72565393"
-         target="_blank" rel="noopener">
-        <div class="social-icons__icon" style="background-image: url('https://alexgb.co.uk/svg/linkedin.svg')"></div>
+      <a
+        class="social-icons__link"
+        title="LinkedIn"
+        href="https://www.linkedin.com/in/alexandru-buzneanu-72565393/"
+        target="_blank"
+        rel="me noopener"
+      >
+        <div class="social-icons__icon" style="background-image: url('https://alexgb1.github.io/svg/linkedin.svg')"></div>
       </a>
     
      
 </div>
 
-            <p>© 2021</p>
+            <p>© 2025</p>
           </footer>
           </div>
       </div>
@@ -274,7 +299,7 @@ val response = client.send(requestCreator(&quot;some-appointment-id&quot;))
    
 
   
-  <script src="/js/index.min.dd7d0d377e9cb18d4a8a9fd1a9cd3c7a9c773f5e67ca7e39635d56038a53b0d1.js" integrity="sha256-3X0NN36csY1Kip/Rqc08epx3P15nyn45Y11WA4pTsNE=" crossorigin="anonymous"></script>
+  <script src="/js/index.min.301a8b0870381bf76b3b5182e8966d363a0474281183439beb024d8b8228fc66.js" integrity="sha256-MBqLCHA4G/drO1GC6JZtNjoEdCgRg0Ob6wJNi4Io/GY=" crossorigin="anonymous"></script>
   
   
   <script src="https://unpkg.com/prismjs@1.20.0/components/prism-core.min.js"></script>

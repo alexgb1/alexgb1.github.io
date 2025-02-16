@@ -17,6 +17,7 @@
 
   <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
 
+
   
   
     
@@ -28,7 +29,7 @@
   
   
     
-    <link type="text/css" rel="stylesheet" href="/css/post.min.2cb93c91050d1853bf971cc31e00122edd6e0f405aa1de3b7f8ef67ea3b5a79a.css" integrity="sha256-LLk8kQUNGFO/lxzDHgASLt1uD0Baod47f472fqO1p5o="/>
+    <link type="text/css" rel="stylesheet" href="/css/post.min.86d1effd4c412b85ac13db53a90c473a0f256f789b821e131125c9aa25cb6a6d.css" integrity="sha256-htHv/UxBK4WsE9tTqQxHOg8lb3ibgh4TESXJqiXLam0="/>
   
     
     <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
@@ -45,7 +46,7 @@
       "@type" : "BlogPosting",
       "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/alexgb.co.uk"
+            "@id": "https:\/\/alexgb1.github.io\/"
       },
       "articleSection" : "blog",
       "name" : "Secret Sharing",
@@ -60,26 +61,16 @@
       "copyrightYear" : "2020",
       "datePublished": "2020-12-28 11:13:43 \u002b0100 \u002b0100",
       "dateModified" : "2020-12-28 11:13:43 \u002b0100 \u002b0100",
-      "url" : "https:\/\/alexgb.co.uk\/blog\/secret-sharing\/",
+      "url" : "https:\/\/alexgb1.github.io\/blog\/secret-sharing\/",
       "wordCount" : "510",
       "keywords" : ["secret-sharing", "scala", "polynomial", "Blog"]
     }
   
   </script>
 
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-23997013-2', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
 </head>
 
-<body class="switchme">
+<body>
   <div class="burger__container">
   <div class="burger" aria-controls="navigation" aria-label="Menu">
     <div class="burger__meat burger__meat--1"></div>
@@ -89,7 +80,7 @@ if (!doNotTrack) {
 </div>
  
 
-  <nav class="nav switchme" id="navigation">
+  <nav class="nav" id="navigation">
   <ul class="nav__list">
     
     
@@ -106,7 +97,6 @@ if (!doNotTrack) {
 </nav>
 
 
-
   <main>
     
     
@@ -116,8 +106,7 @@ if (!doNotTrack) {
         <div class="post">
           <header class="post__header">
             <h1 id="post__title">Secret Sharing</h1>
-            <time datetime="2020-12-28 11:13:43 &#43;0100 &#43;0100" class="post__date"
-            >Dec 28 2020</time>
+            <time datetime="2020-12-28 11:13:43 &#43;0100 &#43;0100" class="post__date">Dec 28 2020</time> 
           </header>
           <article class="post__content">
               
@@ -125,20 +114,35 @@ if (!doNotTrack) {
 <p>The motivation for this concept is related to the ability to safeguard cryptographic keys from loss or exposure. Secret sharing schemes are multi-party protocols related to the key establishment, where for example a private key in an asymmetric cryptosystem can be split between multiple entities for safely controlling decryption or signature creation.</p>
 <p>Not all secret sharing schemes are considered secure. In this post, I&rsquo;ll refer to one which in its original format ticks most of the boxes.</p>
 <h2 id="shamirs-secret-sharing-scheme">Shamir&rsquo;s secret sharing scheme<a class="anchor" href="#shamirs-secret-sharing-scheme">#</a></h2>
-<p><a href="https://dl.acm.org/doi/abs/10.1145/359168.359176">Shamir&rsquo;s secret sharing scheme</a> is a $(t,n)$ threshold scheme, where a trusted party distributes shares of a given secret $S$ to $n$ users. Any group of $t$ or more users which provide their shares are capable of recovering the initial secret $S$.</p>
+<p><a href="https://dl.acm.org/doi/abs/10.1145/359168.359176" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>Shamir&rsquo;s secret sharing scheme</a> is a $(t,n)$ threshold scheme, where a trusted party distributes shares of a given secret $S$ to $n$ users. Any group of $t$ or more users which provide their shares are capable of recovering the initial secret $S$.</p>
 <p>The scheme consists of two phases. A <em>setup</em> phase and a <em>reconstruction</em> phase.</p>
 <h3 id="setup-phase">Setup phase<a class="anchor" href="#setup-phase">#</a></h3>
 <p>In the <em>setup</em> phase, the trusted party $TP$ starts with a secret integer $S \geq 0$ which it wants to share between $n$ users, then :</p>
 <ol>
 <li>$TP$ picks a prime $P \gt S$ and defines $c_0=S$</li>
 <li>$TP$ selects $t-1$ random, independent coefficients $c_1,\dots,c_{t-1}$, where $0 \leq c_j \leq P-1$ which define the polynomial over $Z_P$, $$f(x)=\sum_{j=0}^{t-1} c_j x^j$$
-The source code can be found <a href="https://github.com/alexgb1/secret-sharing/blob/main/src/main/scala/org/example/secretsharing/shamir/ShamirSecretSharingScheme.scala#L48">here</a>.</li>
-<li>$TP$ computes $S_i=f(i) mod \ P$, for $0 \leq i \leq P-1$, and transfers each share $S_i$, in a secure manner, to user $U_i$, along with its public index $i$. The source code can be found <a href="https://github.com/alexgb1/secret-sharing/blob/main/src/main/scala/org/example/secretsharing/shamir/ShamirSecretSharingScheme.scala#L14">here</a>.</li>
+The source code can be found <a href="https://github.com/alexgb1/secret-sharing/blob/main/src/main/scala/org/example/secretsharing/shamir/ShamirSecretSharingScheme.scala#L48" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>here</a>.</li>
+<li>$TP$ computes $S_i=f(i) mod \ P$, for $0 \leq i \leq P-1$, and transfers each share $S_i$, in a secure manner, to user $U_i$, along with its public index $i$. The source code can be found <a href="https://github.com/alexgb1/secret-sharing/blob/main/src/main/scala/org/example/secretsharing/shamir/ShamirSecretSharingScheme.scala#L14" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>here</a>.</li>
 </ol>
 <h3 id="reconstruction-phase">Reconstruction phase<a class="anchor" href="#reconstruction-phase">#</a></h3>
-<p>In the <em>reconstruction</em> phase, any group of $t$ or more users pool their shares as distinct points $(x, y) = (i, S_i)$, can compute the coefficients $c_j, 1 \leq j \leq t-1 $ of $f(x)$ by using the <a href="https://en.wikipedia.org/wiki/Lagrange_polynomial">Lagrange interpolation</a>. Using the computed coefficients, the secret can be recovered from $f(0) = S$. Since $f(0) = S$, the shared secret can be expressed as:</p>
+<p>In the <em>reconstruction</em> phase, any group of $t$ or more users pool their shares as distinct points $(x, y) = (i, S_i)$, can compute the coefficients $c_j, 1 \leq j \leq t-1 $ of $f(x)$ by using the <a href="https://en.wikipedia.org/wiki/Lagrange_polynomial" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>Lagrange interpolation</a>. Using the computed coefficients, the secret can be recovered from $f(0) = S$. Since $f(0) = S$, the shared secret can be expressed as:</p>
 <p>$$S = \sum_{i=1}^{t}k_i y_i$$ where $ k_i $ is: $$k_i = \prod_{j=1, j \neq i}^{t} \frac{x_j}{x_j - x_i}$$</p>
-<p>The source code can be found <a href="https://github.com/alexgb1/secret-sharing/blob/main/src/main/scala/org/example/secretsharing/shamir/ShamirSecretSharingScheme.scala#L22">here</a>.</p>
+<p>The source code can be found <a href="https://github.com/alexgb1/secret-sharing/blob/main/src/main/scala/org/example/secretsharing/shamir/ShamirSecretSharingScheme.scala#L22" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>here</a>.</p>
 <h3 id="properties">Properties<a class="anchor" href="#properties">#</a></h3>
 <p>This scheme is commonly used because of the following properties:</p>
 <ul>
@@ -148,8 +152,14 @@ The source code can be found <a href="https://github.com/alexgb1/secret-sharing/
 <li><em>extendable</em> - New shares can be computed for newly joined users without impacting the existing shares.</li>
 </ul>
 <h2 id="does-it-work">Does it work?<a class="anchor" href="#does-it-work">#</a></h2>
-<p>The full implementation of the Shamir&rsquo;s secret sharing scheme using Scala can be found <a href="https://github.com/alexgb1/secret-sharing">here</a>.</p>
-<p>The <a href="https://github.com/alexgb1/secret-sharing/blob/main/src/test/scala/org/example/secretsharing/DealerTest.scala#L11">dealer test</a> shows in which configurations the secret can or cannot be reconstructed, satisfying the format of $t$ out of $n$ threshold secret sharing scheme.</p>
+<p>The full implementation of the Shamir&rsquo;s secret sharing scheme using Scala can be found <a href="https://github.com/alexgb1/secret-sharing" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>here</a>.</p>
+<p>The <a href="https://github.com/alexgb1/secret-sharing/blob/main/src/test/scala/org/example/secretsharing/DealerTest.scala#L11" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>dealer test</a> shows in which configurations the secret can or cannot be reconstructed, satisfying the format of $t$ out of $n$ threshold secret sharing scheme.</p>
 
 
               
@@ -171,21 +181,21 @@ The source code can be found <a href="https://github.com/alexgb1/secret-sharing/
 <ul class="tags__list">
     
     <li class="tag__item">
-        <a class="tag__link" href="https://alexgb.co.uk/tags/secret-sharing/">secret-sharing</a>
+        <a class="tag__link" href="https://alexgb1.github.io/tags/secret-sharing/">secret-sharing</a>
     </li>
     <li class="tag__item">
-        <a class="tag__link" href="https://alexgb.co.uk/tags/scala/">scala</a>
+        <a class="tag__link" href="https://alexgb1.github.io/tags/scala/">scala</a>
     </li>
     <li class="tag__item">
-        <a class="tag__link" href="https://alexgb.co.uk/tags/polynomial/">polynomial</a>
+        <a class="tag__link" href="https://alexgb1.github.io/tags/polynomial/">polynomial</a>
     </li>
     <li class="tag__item">
-        <a class="tag__link" href="https://alexgb.co.uk/tags/math/">math</a>
+        <a class="tag__link" href="https://alexgb1.github.io/tags/math/">math</a>
     </li></ul>
 
  <div class="pagination">
   
-    <a class="pagination__item" href="https://alexgb.co.uk/blog/your-api-as-data/">
+    <a class="pagination__item" href="https://alexgb1.github.io/blog/your-api-as-data/">
         <span class="pagination__label">Previous Post</span>
         <span class="pagination__title">Your API as Data</span>
     </a>
@@ -203,25 +213,33 @@ The source code can be found <a href="https://github.com/alexgb1/secret-sharing/
   
      
     
-      <a class="social-icons__link" title="GitHub"
-         href="https://github.com/alexgb1"
-         target="_blank" rel="noopener">
-        <div class="social-icons__icon" style="background-image: url('https://alexgb.co.uk/svg/github.svg')"></div>
+      <a
+        class="social-icons__link"
+        title="GitHub"
+        href="https://github.com/alexgb1"
+        target="_blank"
+        rel="me noopener"
+      >
+        <div class="social-icons__icon" style="background-image: url('https://alexgb1.github.io/svg/github.svg')"></div>
       </a>
     
   
      
     
-      <a class="social-icons__link" title="LinkedIn"
-         href="https://www.linkedin.com/in/alexandru-gabriel-buzneanu-72565393"
-         target="_blank" rel="noopener">
-        <div class="social-icons__icon" style="background-image: url('https://alexgb.co.uk/svg/linkedin.svg')"></div>
+      <a
+        class="social-icons__link"
+        title="LinkedIn"
+        href="https://www.linkedin.com/in/alexandru-buzneanu-72565393/"
+        target="_blank"
+        rel="me noopener"
+      >
+        <div class="social-icons__icon" style="background-image: url('https://alexgb1.github.io/svg/linkedin.svg')"></div>
       </a>
     
      
 </div>
 
-            <p>© 2021</p>
+            <p>© 2025</p>
           </footer>
           </div>
       </div>
@@ -234,7 +252,7 @@ The source code can be found <a href="https://github.com/alexgb1/secret-sharing/
    
 
   
-  <script src="/js/index.min.dd7d0d377e9cb18d4a8a9fd1a9cd3c7a9c773f5e67ca7e39635d56038a53b0d1.js" integrity="sha256-3X0NN36csY1Kip/Rqc08epx3P15nyn45Y11WA4pTsNE=" crossorigin="anonymous"></script>
+  <script src="/js/index.min.301a8b0870381bf76b3b5182e8966d363a0474281183439beb024d8b8228fc66.js" integrity="sha256-MBqLCHA4G/drO1GC6JZtNjoEdCgRg0Ob6wJNi4Io/GY=" crossorigin="anonymous"></script>
   
   
   <script src="https://unpkg.com/prismjs@1.20.0/components/prism-core.min.js"></script>

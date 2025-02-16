@@ -2,14 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on alexgb1</title>
-    <link>https://alexgb.co.uk/categories/</link>
+    <link>https://alexgb1.github.io/categories/</link>
     <description>Recent content in Categories on alexgb1</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    
-	<atom:link href="https://alexgb.co.uk/categories/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://alexgb1.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

@@ -1,26 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>secret-sharing on alexgb1</title>
-    <link>https://alexgb.co.uk/tags/secret-sharing/</link>
-    <description>Recent content in secret-sharing on alexgb1</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Secret-Sharing on alexgb1</title>
+    <link>https://alexgb1.github.io/tags/secret-sharing/</link>
+    <description>Recent content in Secret-Sharing on alexgb1</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
     <lastBuildDate>Mon, 28 Dec 2020 11:13:43 +0100</lastBuildDate>
-    
-	<atom:link href="https://alexgb.co.uk/tags/secret-sharing/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://alexgb1.github.io/tags/secret-sharing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Secret Sharing</title>
-      <link>https://alexgb.co.uk/blog/secret-sharing/</link>
+      <link>https://alexgb1.github.io/blog/secret-sharing/</link>
       <pubDate>Mon, 28 Dec 2020 11:13:43 +0100</pubDate>
-      
-      <guid>https://alexgb.co.uk/blog/secret-sharing/</guid>
-      <description>The general idea of secret sharing begins with a secret which is divided into multiple pieces called shares. Each share is assigned to a user in such a manner that a given subset of shares from users can be used to reconstruct the original secret.
-The motivation for this concept is related to the ability to safeguard cryptographic keys from loss or exposure. Secret sharing schemes are multi-party protocols related to the key establishment, where for example a private key in an asymmetric cryptosystem can be split between multiple entities for safely controlling decryption or signature creation.</description>
+      <guid>https://alexgb1.github.io/blog/secret-sharing/</guid>
+      <description>&lt;p&gt;The general idea of secret sharing begins with a &lt;strong&gt;secret&lt;/strong&gt; which is divided into multiple pieces called &lt;strong&gt;shares&lt;/strong&gt;. Each share is assigned to a user in such a manner that a given subset of shares from users can be used to reconstruct the original secret.&lt;/p&gt;&#xA;&lt;p&gt;The motivation for this concept is related to the ability to safeguard cryptographic keys from loss or exposure. Secret sharing schemes are multi-party protocols related to the key establishment, where for example a private key in an asymmetric cryptosystem can be split between multiple entities for safely controlling decryption or signature creation.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

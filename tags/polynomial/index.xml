@@ -1,37 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>polynomial on alexgb1</title>
-    <link>https://alexgb.co.uk/tags/polynomial/</link>
-    <description>Recent content in polynomial on alexgb1</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Polynomial on alexgb1</title>
+    <link>https://alexgb1.github.io/tags/polynomial/</link>
+    <description>Recent content in Polynomial on alexgb1</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
     <lastBuildDate>Mon, 28 Dec 2020 11:13:43 +0100</lastBuildDate>
-    
-	<atom:link href="https://alexgb.co.uk/tags/polynomial/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://alexgb1.github.io/tags/polynomial/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Secret Sharing</title>
-      <link>https://alexgb.co.uk/blog/secret-sharing/</link>
+      <link>https://alexgb1.github.io/blog/secret-sharing/</link>
       <pubDate>Mon, 28 Dec 2020 11:13:43 +0100</pubDate>
-      
-      <guid>https://alexgb.co.uk/blog/secret-sharing/</guid>
-      <description>The general idea of secret sharing begins with a secret which is divided into multiple pieces called shares. Each share is assigned to a user in such a manner that a given subset of shares from users can be used to reconstruct the original secret.
-The motivation for this concept is related to the ability to safeguard cryptographic keys from loss or exposure. Secret sharing schemes are multi-party protocols related to the key establishment, where for example a private key in an asymmetric cryptosystem can be split between multiple entities for safely controlling decryption or signature creation.</description>
+      <guid>https://alexgb1.github.io/blog/secret-sharing/</guid>
+      <description>&lt;p&gt;The general idea of secret sharing begins with a &lt;strong&gt;secret&lt;/strong&gt; which is divided into multiple pieces called &lt;strong&gt;shares&lt;/strong&gt;. Each share is assigned to a user in such a manner that a given subset of shares from users can be used to reconstruct the original secret.&lt;/p&gt;&#xA;&lt;p&gt;The motivation for this concept is related to the ability to safeguard cryptographic keys from loss or exposure. Secret sharing schemes are multi-party protocols related to the key establishment, where for example a private key in an asymmetric cryptosystem can be split between multiple entities for safely controlling decryption or signature creation.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Faster Polynomial Evaluation</title>
-      <link>https://alexgb.co.uk/blog/faster-polynomial-evaluation/</link>
+      <link>https://alexgb1.github.io/blog/faster-polynomial-evaluation/</link>
       <pubDate>Sun, 06 Sep 2020 12:15:14 +0100</pubDate>
-      
-      <guid>https://alexgb.co.uk/blog/faster-polynomial-evaluation/</guid>
-      <description>This might not be one of your daily problems. Evaluating polynomials seems to be a simple task until the coefficients become big numbers, e.g. 1024 bits or more, and could impact your whole software component.
-Classic evaluation A simple way to evaluate a polynomial is:
-def classicCompute(variable: BigInt): BigInt = { coefficients .zipWithIndex .foldLeft(BigInt(0)) { case (accumulator, (coefficient, i)) =&amp;gt; accumulator + coefficient * variable.pow(i) } }  Optimized evaluation In order to optimize a polynomial evaluation, one could use Horner&amp;rsquo;s method, which implies a significant improvement when using big numbers.</description>
+      <guid>https://alexgb1.github.io/blog/faster-polynomial-evaluation/</guid>
+      <description>&lt;p&gt;This might not be one of your daily problems. Evaluating polynomials seems to be a simple task until the coefficients become big numbers, e.g. 1024 bits or more, and could impact your whole software component.&lt;/p&gt;&#xA;&lt;h2 id=&#34;classic-evaluation&#34;&gt;Classic evaluation&lt;/h2&gt;&#xA;&lt;p&gt;A simple way to evaluate a polynomial is:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;def classicCompute(variable: BigInt): BigInt = {&#xA;    coefficients&#xA;    .zipWithIndex&#xA;    .foldLeft(BigInt(0)) {&#xA;       case (accumulator, (coefficient, i)) =&amp;gt; &#xA;          accumulator + coefficient * variable.pow(i)&#xA;    }&#xA;  }&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h2 id=&#34;optimized-evaluation&#34;&gt;Optimized evaluation&lt;/h2&gt;&#xA;&lt;p&gt;In order to optimize a polynomial evaluation, one could use &lt;a href=&#34;https://en.wikipedia.org/wiki/Horner%27s_method&#34; &#xA;  &#xA;   target=&#34;_blank&#34; rel=&#34;noreferrer noopener&#34; &#xA;&gt;Horner&amp;rsquo;s method&lt;/a&gt;, which implies a significant &lt;a href=&#34;https://en.wikipedia.org/wiki/Horner%27s_method#Efficiency&#34; &#xA;  &#xA;   target=&#34;_blank&#34; rel=&#34;noreferrer noopener&#34; &#xA;&gt;improvement&lt;/a&gt; when using big numbers.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

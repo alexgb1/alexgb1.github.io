@@ -17,6 +17,7 @@
 
   <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
 
+
   
   
     
@@ -28,7 +29,7 @@
   
   
     
-    <link type="text/css" rel="stylesheet" href="/css/post.min.2cb93c91050d1853bf971cc31e00122edd6e0f405aa1de3b7f8ef67ea3b5a79a.css" integrity="sha256-LLk8kQUNGFO/lxzDHgASLt1uD0Baod47f472fqO1p5o="/>
+    <link type="text/css" rel="stylesheet" href="/css/post.min.86d1effd4c412b85ac13db53a90c473a0f256f789b821e131125c9aa25cb6a6d.css" integrity="sha256-htHv/UxBK4WsE9tTqQxHOg8lb3ibgh4TESXJqiXLam0="/>
   
     
     <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
@@ -45,7 +46,7 @@
       "@type" : "BlogPosting",
       "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/alexgb.co.uk"
+            "@id": "https:\/\/alexgb1.github.io\/"
       },
       "articleSection" : "blog",
       "name" : "Faster Polynomial Evaluation",
@@ -60,26 +61,16 @@
       "copyrightYear" : "2020",
       "datePublished": "2020-09-06 12:15:14 \u002b0100 BST",
       "dateModified" : "2020-09-06 12:15:14 \u002b0100 BST",
-      "url" : "https:\/\/alexgb.co.uk\/blog\/faster-polynomial-evaluation\/",
+      "url" : "https:\/\/alexgb1.github.io\/blog\/faster-polynomial-evaluation\/",
       "wordCount" : "345",
       "keywords" : ["polynomial", "math", "scala", "Blog"]
     }
   
   </script>
 
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-23997013-2', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
 </head>
 
-<body class="switchme">
+<body>
   <div class="burger__container">
   <div class="burger" aria-controls="navigation" aria-label="Menu">
     <div class="burger__meat burger__meat--1"></div>
@@ -89,7 +80,7 @@ if (!doNotTrack) {
 </div>
  
 
-  <nav class="nav switchme" id="navigation">
+  <nav class="nav" id="navigation">
   <ul class="nav__list">
     
     
@@ -106,7 +97,6 @@ if (!doNotTrack) {
 </nav>
 
 
-
   <main>
     
     
@@ -116,8 +106,7 @@ if (!doNotTrack) {
         <div class="post">
           <header class="post__header">
             <h1 id="post__title">Faster Polynomial Evaluation</h1>
-            <time datetime="2020-09-06 12:15:14 &#43;0100 BST" class="post__date"
-            >Sep 6 2020</time>
+            <time datetime="2020-09-06 12:15:14 &#43;0100 BST" class="post__date">Sep 6 2020</time> 
           </header>
           <article class="post__content">
               
@@ -134,8 +123,17 @@ if (!doNotTrack) {
   }
 </code></pre>
 <h2 id="optimized-evaluation">Optimized evaluation<a class="anchor" href="#optimized-evaluation">#</a></h2>
-<p>In order to optimize a polynomial evaluation, one could use <a href="https://en.wikipedia.org/wiki/Horner%27s_method">Horner&rsquo;s method</a>, which implies a significant <a href="https://en.wikipedia.org/wiki/Horner%27s_method#Efficiency">improvement</a> when using big numbers.</p>
-<p>Translated into code, the <a href="https://en.wikipedia.org/wiki/Horner%27s_method#Polynomial_evaluation_and_long_division">evaluation</a> looks like this:</p>
+<p>In order to optimize a polynomial evaluation, one could use <a href="https://en.wikipedia.org/wiki/Horner%27s_method" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>Horner&rsquo;s method</a>, which implies a significant <a href="https://en.wikipedia.org/wiki/Horner%27s_method#Efficiency" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>improvement</a> when using big numbers.</p>
+<p>Translated into code, the <a href="https://en.wikipedia.org/wiki/Horner%27s_method#Polynomial_evaluation_and_long_division" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>evaluation</a> looks like this:</p>
 <pre><code class="language-scala">def compute(variable: BigInt): BigInt = {
     @tailrec
     def loop(accumulator: BigInt, coefficients: List[BigInt]): BigInt = {
@@ -150,7 +148,10 @@ if (!doNotTrack) {
   }
 </code></pre>
 <h2 id="in-the-real-world">In the real world<a class="anchor" href="#in-the-real-world">#</a></h2>
-<p>Given the two implementation, I&rsquo;ve setup a benchmark test using a sbt <a href="https://github.com/ktoso/sbt-jmh">plugin</a> for the JMH (Java Microbenchmark Harness).
+<p>Given the two implementation, I&rsquo;ve setup a benchmark test using a sbt <a href="https://github.com/ktoso/sbt-jmh" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>plugin</a> for the JMH (Java Microbenchmark Harness).
 The results for 4096bit size numbers and 20 coefficients on my machine (<code>Intel i7-7500U CPU @ 2.70GHz</code>) are:</p>
 <pre><code>Benchmark                            Mode   Cnt    Score    Error   Units
 evaluatePolynomialClassic           thrpt     3    0.065 ±  0.026  ops/ms
@@ -189,22 +190,22 @@ evaluatePolynomialHorner               ss     3   17.525 ± 11.917   ms/op
 <ul class="tags__list">
     
     <li class="tag__item">
-        <a class="tag__link" href="https://alexgb.co.uk/tags/polynomial/">polynomial</a>
+        <a class="tag__link" href="https://alexgb1.github.io/tags/polynomial/">polynomial</a>
     </li>
     <li class="tag__item">
-        <a class="tag__link" href="https://alexgb.co.uk/tags/math/">math</a>
+        <a class="tag__link" href="https://alexgb1.github.io/tags/math/">math</a>
     </li>
     <li class="tag__item">
-        <a class="tag__link" href="https://alexgb.co.uk/tags/scala/">scala</a>
+        <a class="tag__link" href="https://alexgb1.github.io/tags/scala/">scala</a>
     </li></ul>
 
  <div class="pagination">
   
 
   
-    <a class="pagination__item" href="https://alexgb.co.uk/blog/your-api-as-data/">
+    <a class="pagination__item" href="https://alexgb1.github.io/blog/your-api-as-data/">
       <span class="pagination__label">Next Post</span>
-      <span class="pagination__title" >Your API as Data</a>
+      <span class="pagination__title" >Your API as Data</span>
     </a>
   
 </div>
@@ -218,25 +219,33 @@ evaluatePolynomialHorner               ss     3   17.525 ± 11.917   ms/op
   
      
     
-      <a class="social-icons__link" title="GitHub"
-         href="https://github.com/alexgb1"
-         target="_blank" rel="noopener">
-        <div class="social-icons__icon" style="background-image: url('https://alexgb.co.uk/svg/github.svg')"></div>
+      <a
+        class="social-icons__link"
+        title="GitHub"
+        href="https://github.com/alexgb1"
+        target="_blank"
+        rel="me noopener"
+      >
+        <div class="social-icons__icon" style="background-image: url('https://alexgb1.github.io/svg/github.svg')"></div>
       </a>
     
   
      
     
-      <a class="social-icons__link" title="LinkedIn"
-         href="https://www.linkedin.com/in/alexandru-gabriel-buzneanu-72565393"
-         target="_blank" rel="noopener">
-        <div class="social-icons__icon" style="background-image: url('https://alexgb.co.uk/svg/linkedin.svg')"></div>
+      <a
+        class="social-icons__link"
+        title="LinkedIn"
+        href="https://www.linkedin.com/in/alexandru-buzneanu-72565393/"
+        target="_blank"
+        rel="me noopener"
+      >
+        <div class="social-icons__icon" style="background-image: url('https://alexgb1.github.io/svg/linkedin.svg')"></div>
       </a>
     
      
 </div>
 
-            <p>© 2021</p>
+            <p>© 2025</p>
           </footer>
           </div>
       </div>
@@ -249,7 +258,7 @@ evaluatePolynomialHorner               ss     3   17.525 ± 11.917   ms/op
    
 
   
-  <script src="/js/index.min.dd7d0d377e9cb18d4a8a9fd1a9cd3c7a9c773f5e67ca7e39635d56038a53b0d1.js" integrity="sha256-3X0NN36csY1Kip/Rqc08epx3P15nyn45Y11WA4pTsNE=" crossorigin="anonymous"></script>
+  <script src="/js/index.min.301a8b0870381bf76b3b5182e8966d363a0474281183439beb024d8b8228fc66.js" integrity="sha256-MBqLCHA4G/drO1GC6JZtNjoEdCgRg0Ob6wJNi4Io/GY=" crossorigin="anonymous"></script>
   
   
   <script src="https://unpkg.com/prismjs@1.20.0/components/prism-core.min.js"></script>
